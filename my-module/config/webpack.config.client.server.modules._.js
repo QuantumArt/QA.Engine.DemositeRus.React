@@ -1,0 +1,1 @@
+const path=require("path"),baseconfig=require("./webpack.config.client._"),{merge}=require("webpack-merge"),webpackConfig={};module.exports=merge(baseconfig,webpackConfig);

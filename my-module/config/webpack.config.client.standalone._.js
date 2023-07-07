@@ -1,0 +1,1 @@
+const HtmlWebpackPlugin=require("html-webpack-plugin"),path=require("path"),shared=require("./webpack.config.client._"),{merge}=require("webpack-merge"),webpackConfig={plugins:[new HtmlWebpackPlugin({template:path.resolve(__dirname,"../src/client/public/index.html")})]};module.exports=merge(shared,webpackConfig);

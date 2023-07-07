@@ -1,0 +1,1 @@
+const path=require("path"),baseconfig=require("./webpack.config.client.server._"),{EnvironmentPlugin}=require("webpack"),{merge}=require("webpack-merge"),webpackConfig={plugins:[new EnvironmentPlugin({wpPlatform:{publicPath:"/"}})]};module.exports=merge(baseconfig,webpackConfig);

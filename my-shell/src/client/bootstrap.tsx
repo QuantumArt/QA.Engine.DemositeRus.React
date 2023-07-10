@@ -39,6 +39,7 @@ const prepareClientApp = async (): Promise<IProps> => {
     appSettings,
     Page,
     NotFoundComponent,
+    2,
   );
   await siteStructureStore.init();
 

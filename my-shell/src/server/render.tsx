@@ -38,6 +38,7 @@ const prepareServerApp = async (url: string, appSettings: IAppSettingsShell): Pr
     appSettings,
     Page,
     NotFoundComponent,
+    2
   );
   await siteStructureStore.init();
 

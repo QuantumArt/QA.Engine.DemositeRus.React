@@ -1,0 +1,130 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: #{configmapName}#
+  namespace: #{k8snamespace}#
+data:
+  NODE_ENV: production
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #{shellName}#
+  namespace: #{k8snamespace}#
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: #{shellName}#
+  template:
+    metadata:
+      labels:
+        app: #{shellName}#
+        logging: enabled
+    spec:
+      containers:
+      - image: "#{registry}#/#{shellImageName}#:||version||"
+        name: #{shellName}#
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3200
+        envFrom:
+        - configMapRef:
+            name: #{configmapName}#
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 256Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #{moduleName}#
+  namespace: #{k8snamespace}#
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: #{moduleName}#
+  template:
+    metadata:
+      labels:
+        app: #{moduleName}#
+        logging: enabled
+    spec:
+      containers:
+      - image: "#{registry}#/#{moduleImageName}#:||version||"
+        name: #{moduleName}#
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: #{configmapName}#
+        resources:
+          limits:
+            memory: 1Gi
+          requests:
+            memory: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: #{shellName}#
+  namespace: #{k8snamespace}#
+spec:
+  ports:
+  - port: 80
+    targetPort: 3200
+  selector:
+    app: #{shellName}#
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: #{moduleName}#
+  namespace: #{k8snamespace}#
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: #{moduleName}#
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: #{moduleName}#
+  namespace: #{k8snamespace}#
+spec:
+  rules:
+  - host: #{moduleHost}#
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: #{moduleName}#
+            port: 
+              number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: #{shellName}#
+  namespace: #{k8snamespace}#
+spec:
+  rules:
+  - host: #{shellHost}#
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: #{shellName}#
+            port: 
+              number: 80

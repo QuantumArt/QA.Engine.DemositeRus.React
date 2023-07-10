@@ -23,7 +23,7 @@ spec:
         logging: enabled
     spec:
       containers:
-      - image: "#{registry}#/#{shellImageName}#:||version||"
+      - image: "#{registry}#/#{shell.imageName}#:||version||"
         name: #{shellName}#
         imagePullPolicy: IfNotPresent
         ports:
@@ -54,7 +54,7 @@ spec:
         logging: enabled
     spec:
       containers:
-      - image: "#{registry}#/#{moduleImageName}#:||version||"
+      - image: "#{registry}#/#{module.imageName}#:||version||"
         name: #{moduleName}#
         imagePullPolicy: IfNotPresent
         ports:

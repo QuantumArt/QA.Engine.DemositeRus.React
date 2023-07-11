@@ -5,6 +5,13 @@ metadata:
   namespace: #{k8snamespace}#
 data:
   QPWidgetsPlatformModules: "#{qpWidgetsPlatformModules}#"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: #{shellName}#-settings
+  namespace: #{k8snamespace}#
+data:
   settings.json: |-
     {
       "widgetsPlatform": {
@@ -50,7 +57,7 @@ spec:
             name: #{shellName}#
         volumeMounts:
         - mountPath: /dist/server/settings.json
-          name: configmap-volume
+          name: configmap-settings
           subPath: settings.json
         resources:
           limits:
@@ -58,9 +65,9 @@ spec:
           requests:
             memory: 256Mi
       volumes:
-      - name: configmap-volume
+      - name: configmap-settings
         configMap:
-          name: #{shellName}#
+          name: #{shellName}#-settings
           items:
           - key: settings.json
             path: settings.json

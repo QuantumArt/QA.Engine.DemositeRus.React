@@ -4,7 +4,8 @@ metadata:
   name: #{shellName}#
   namespace: #{k8snamespace}#
 data:
-  QPWidgetsPlatformModules: "#{qpWidgetsPlatformModules}#"
+  QPWidgetsPlatformModulesClient: "#{qpWidgetsPlatformModulesClient}#"
+  QPWidgetsPlatformModulesServer: "#{qpWidgetsPlatformModulesServer}#"
 ---
 apiVersion: v1
 kind: ConfigMap

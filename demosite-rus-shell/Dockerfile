@@ -13,4 +13,4 @@ FROM node:18.16.0-alpine
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 EXPOSE 3200
-CMD sed -i -e 's/||\*\*\*qp_widgets_platform_modules\*\*\*||/'"$QPWidgetsPlatformModules"'/g' /dist/server/*.*; node /dist/server/main.js
+CMD sed -i -e 's/||\*\*\*qp_widgets_platform_modules\*\*\*||/'"$QPWidgetsPlatformModules"'/g' /dist/server/*.*; sed -i -e 's/||\*\*\*qp_widgets_platform_modules\*\*\*||/'"$QPWidgetsPlatformModules"'/g' /dist/static/client/*.*; node /dist/server/main.js

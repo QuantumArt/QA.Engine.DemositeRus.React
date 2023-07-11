@@ -4,7 +4,14 @@ const {
   { NodeFederationPlugin, StreamingTargetPlugin } = require('@module-federation/node'),
   pkg = require('../package.json'),
   remotes = {
-    qp_widgets_platform_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
+    //local
+    //qp_widgets_platform_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
+    //dev
+    //qp_widgets_platform_modules:
+    //   'qp_widgets_platform_modules@https://react-modules.demositerus.dev.qsupport.ru/static',
+    //prod
+    qp_widgets_platform_modules:
+      'qp_widgets_platform_modules@https://react-modules.demositerus.qsupport.ru/static',
   },
   getRemotes = (e, r) => Object.keys(e).reduce((t, o) => ({ ...t, [o]: `${e[o]}${r}` }), {}),
   shared = {

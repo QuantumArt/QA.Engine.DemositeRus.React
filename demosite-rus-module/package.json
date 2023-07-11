@@ -47,6 +47,10 @@
     "build:server:modules": "rimraf dist && npm run build:server:modules:client && npm run build:server:modules:server",
     "build:server:modules:client": "webpack --mode development --progress --config config/webpack.config.client.server.modules._.js",
     "build:server:modules:server": "webpack --mode development --progress --config config/webpack.config.server.modules._.js",
+    "build:server:prod": "npm run build:server:modules",
+    "build:server:modules:prod": "rimraf dist && npm run build:server:modules:client:prod && npm run build:server:modules:server:prod",
+    "build:server:modules:client:prod": "webpack --mode production --progress --config config/webpack.config.client.server.modules._.js",
+    "build:server:modules:server:prod": "webpack --mode production --progress --config config/webpack.config.server.modules._.js",
     "clean": "rm -rf dist",
     "serve": "serve dist -p 3201"
   },

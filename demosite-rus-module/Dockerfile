@@ -7,7 +7,7 @@ COPY /package-lock.json ./
 RUN npm ci
 
 COPY / /app
-RUN npm run build:server
+RUN npm run build:server:prod
 
 FROM nginx
 RUN rm /etc/nginx/nginx.conf

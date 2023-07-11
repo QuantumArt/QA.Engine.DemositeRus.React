@@ -14,6 +14,11 @@ data:
         },
         "dnsName": "#{wpDnsName}#",
         "forcedConfigurationOfDynamicModules": {}
+      },
+      "useDynamicModules": false,
+        "ssr": {
+        "active": true,
+        "ttl": 30
       }
     }
 ---

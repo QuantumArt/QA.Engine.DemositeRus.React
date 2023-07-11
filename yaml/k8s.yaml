@@ -47,7 +47,7 @@ spec:
         - containerPort: 3200
         envFrom:
         - configMapRef:
-            name: #{configmapName}#
+            name: #{shellName}#
         volumeMounts:
         - mountPath: /dist/server/settings.json
           name: configmap-volume

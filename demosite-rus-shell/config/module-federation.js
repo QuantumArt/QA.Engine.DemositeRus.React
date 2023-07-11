@@ -1,26 +1,26 @@
 const {
-    container: { ModuleFederationPlugin },
-  } = require('webpack'),
-  { NodeFederationPlugin, StreamingTargetPlugin } = require('@module-federation/node'),
-  pkg = require('../package.json'),
-  remotes = {
-    //local
-    //qp_widgets_platform_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
-    //dev
-    // qp_widgets_platform_modules:
-    //   'qp_widgets_platform_modules@https://react-modules.demositerus.dev.qsupport.ru/static',
-    //prod
-    qp_widgets_platform_modules:
-      'qp_widgets_platform_modules@https://react-modules.demositerus.qsupport.ru/static',
-  },
-  getRemotes = (e, r) => Object.keys(e).reduce((t, o) => ({ ...t, [o]: `${e[o]}${r}` }), {}),
-  shared = {
-    ...pkg.dependencies,
-    react: { singleton: !0, requiredVersion: pkg.dependencies.react },
-    'react-dom': { singleton: !0, requiredVersion: pkg.dependencies['react-dom'] },
-    'react-router-dom': { singleton: !0 },
-    '@quantumart/qp8-widget-platform-bridge': { singleton: !0 },
-  };
+  container: { ModuleFederationPlugin },
+} = require('webpack');
+const { NodeFederationPlugin, StreamingTargetPlugin } = require('@module-federation/node');
+const pkg = require('../package.json');
+
+const remotes = {
+  //local
+  //qp_widgets_platform_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
+  //prod
+  qp_widgets_platform_modules:
+    'qp_widgets_platform_modules@||***qp_widgets_platform_modules***||/static',
+};
+const getRemotes = (e, r) => Object.keys(e).reduce((t, o) => ({ ...t, [o]: `${e[o]}${r}` }), {});
+
+const shared = {
+  ...pkg.dependencies,
+  react: { singleton: !0, requiredVersion: pkg.dependencies.react },
+  'react-dom': { singleton: !0, requiredVersion: pkg.dependencies['react-dom'] },
+  'react-router-dom': { singleton: !0 },
+  '@quantumart/qp8-widget-platform-bridge': { singleton: !0 },
+};
+
 module.exports = {
   client: new ModuleFederationPlugin({
     name: 'qp_widgets_platform_shell',

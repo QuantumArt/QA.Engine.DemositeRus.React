@@ -12,7 +12,7 @@ data:
           "apiUrl": "#{wpGraphqlApiUrl}#",
           "apiKey": "#{wpGraphqlApiKey}#"
         },
-        "dnsName": "#{wpDnsName}#"
+        "dnsName": "#{wpDnsName}#",
         "forcedConfigurationOfDynamicModules": {}
     }
 ---

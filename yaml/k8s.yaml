@@ -4,6 +4,7 @@ metadata:
   name: #{shellName}#
   namespace: #{k8snamespace}#
 data:
+  QPWidgetsPlatformModules: "#{qpWidgetsPlatformModules}"
   settings.json: |-
     {
       "widgetsPlatform": {

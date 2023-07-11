@@ -1,71 +1,71 @@
 {
   "widgetsPlatform": {
-    "apiUrl": "http://wp-api.demositerus.dev.qsupport.ru",
+    "apiUrl": "https://wp-api.demositerus.dev.qsupport.ru",
     "graphql": {
-      "apiUrl": "http://graphql.demositerus.dev.qsupport.ru/graphql",
+      "apiUrl": "https://graphql.demositerus.dev.qsupport.ru/graphql",
       "apiKey": ""
     },
     "dnsName": "demositerus.dev.qsupport.ru",
     "forcedConfigurationOfDynamicModules": {
       "start_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "redirect_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "text_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "media_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "news_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "search_result_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "sitemap_page": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "html_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "search_bar_widget": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "foldboxlist_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "subscribe_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "feedback_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "banner_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "newsroom_widget": {
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       },
       "top_menu_widget":{
         "url": "http://localhost:3201/static",
-        "moduleName": "qp_widgets_platform_modules"
+        "moduleName": "qp_widgets_platform_local_modules"
       }
     }
   },

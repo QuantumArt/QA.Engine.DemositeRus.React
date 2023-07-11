@@ -5,10 +5,10 @@ const {
   pkg = require('../package.json'),
   remotes = {
     //local
-    //qp_widgets_platform_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
+    qp_widgets_platform_local_modules: 'qp_widgets_platform_modules@http://localhost:3201/static',
     //dev
-    //qp_widgets_platform_modules:
-    //   'qp_widgets_platform_modules@https://react-modules.demositerus.dev.qsupport.ru/static',
+    qp_widgets_platform_dev_modules:
+      'qp_widgets_platform_modules@https://react-modules.demositerus.dev.qsupport.ru/static',
     //prod
     qp_widgets_platform_modules:
       'qp_widgets_platform_modules@https://react-modules.demositerus.qsupport.ru/static',

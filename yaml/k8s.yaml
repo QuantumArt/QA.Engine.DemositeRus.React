@@ -1,10 +1,20 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: #{configmapName}#
+  name: #{shellName}#
   namespace: #{k8snamespace}#
 data:
-  NODE_ENV: production
+  settings.json: |-
+    {
+      "widgetsPlatform": {
+        "apiUrl": "#{wpApiUrl}#",
+        "graphql": {
+          "apiUrl": "#{wpGraphqlApiUrl}#",
+          "apiKey": "#{wpGraphqlApiKey}#"
+        },
+        "dnsName": "#{wpDnsName}#"
+        "forcedConfigurationOfDynamicModules": {}
+    }
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,11 +41,22 @@ spec:
         envFrom:
         - configMapRef:
             name: #{configmapName}#
+        volumeMounts:
+        - mountPath: /dist/server/settings.json
+          name: configmap-volume
+          subPath: settings.json
         resources:
           limits:
             memory: 1Gi
           requests:
             memory: 256Mi
+      volumes:
+      - name: configmap-volume
+        configMap:
+          name: #{shellName}#
+          items:
+          - key: settings.json
+            path: settings.json
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -59,9 +80,6 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
-        envFrom:
-        - configMapRef:
-            name: #{configmapName}#
         resources:
           limits:
             memory: 1Gi

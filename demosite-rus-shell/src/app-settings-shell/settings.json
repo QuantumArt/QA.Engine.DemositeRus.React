@@ -6,7 +6,6 @@
       "apiKey": ""
     },
     "dnsName": "demositerus.dev.qsupport.ru",
-    "baseModuleName": "qp_widgets_platform_modules",
     "forcedConfigurationOfDynamicModules": {
       "start_page": {
         "url": "http://localhost:3201/static",
